@@ -441,3 +441,55 @@ relative나 absolute 포지션을 찾게되기 때문이다 */
   margin-left: -12px;
   margin-top: 8px;
 }
+
+/* Testmonial */
+#testimonials {
+  background-color: var(--color-light-white);
+}
+
+.testimonials {
+  margin: 40px;
+}
+
+.testimonial {
+  display: flex;
+  margin: 32px 0;
+}
+
+.testimonial__avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+
+/* 아바타있는 공간에서 child가 홀수일때!!*/
+.testimonial__avatar:nth-child(odd) {
+  margin-right: 40px;
+}
+
+
+/* 아바타있는 공간에서 child가 짝수일때!!
+    만약nth-child(3)이면 
+    h1
+    h1
+    div 
+    일경우 div를 가리킨다!! 그 부모님밑의 자식중에 셋째를 가리키는것!
+*/
+.testimonial__avatar:nth-child(even) {
+  margin-left: 40px;
+}
+
+.testimonial__speech-bubble {
+  padding: 18px;
+  background-color: var(--color-white);
+  border-radius: var(--size-border-radius);
+}
+
+.testimonial__speech-bubble p {
+  color: var(--color-light-grey);
+}
+
+.testimonial__speech-bubble a {
+  color: var(--color-pink);
+}
