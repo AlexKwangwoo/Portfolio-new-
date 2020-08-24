@@ -121,6 +121,11 @@ button {
   border-radius: var(--size-border-radius);
 }
 
+/* 
+html 에서 class 이름 뒤에 active 쓰고
+css 에서는 .~~~.active라고 쓰면 된다!
+*/
+
 .navbar__menu__item.active {
   border: 1px solid var(--color-yellow);
 }
@@ -316,4 +321,123 @@ flex-grow: 1;
 .tools,
 .etc {
   padding: 20px;
+}
+
+
+/* Work */
+
+.category__btn {
+  border: 1px solid var(--color-dark-white);
+  border-radius: var(--size-border-radius);
+  font-size: var(--font-regular);
+  padding: 8px 48px;
+}
+
+.work__categories {
+  margin: 40px;
+}
+
+.category__btn.active,
+.category__btn:hover {
+  background-color: var(--color-pink);
+  color: var(--color-white);
+}
+
+
+/* active는 항상 보여야해서 opacity를 1로 준다! 
+    이것의 해석은.. 카테고리 버튼이 액티브일때의 카테고리 카운트 and
+    카테고리 버튼에 호버가왔을때 카테고리 카운트가 투명도가 1이된다!
+*/
+.category__btn.active .category__count,
+.category__btn:hover .category__count {
+  opacity: 1;
+  top: 0;
+}
+
+
+.category__count {
+  background-color: var(--color-orange);
+  border: 1px solid var(--color-orange);
+  border-radius: 50%;
+  color: var(--color-white);
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  display: inline-block;
+  position: relative;
+  top: -20px;
+  left: 4px;
+  opacity: 0;
+  transition: all var(--animation-duration) ease-in;
+}
+
+.work__projects {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+/* 프로젝트 description들을 위해서 프로젝트가 포지션을 relative로 잡혀준다
+그래야 제내들이 바디까지 도망안간다.. 왜냐하면 자식이 absolute 포지션이 되어버리면
+relative나 absolute 포지션을 찾게되기 때문이다 */
+.project {
+  position: relative;
+  width: 280px;
+  height: 250px;
+  margin: 2px;
+  background-color: var(--color-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* project 안에 담겨있는 img들은 project안의 상자안에어서만
+움직여야함으로 max 크기를 주면 된다!! */
+.project__img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+
+/* Y축 10정도를 내린다. 그다음 호버했을때 0으로 되돌리면
+마치 밑에서 올라오는것 처럼 보인다 */
+.project__description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  background-color: var(--color-black);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all var(--animation-duration) ease-in;
+}
+
+.project:hover .project__description {
+  transform: translateY(0px);
+  opacity: 0.8;
+}
+
+
+/* Description 에서 설정을 해주지만..
+맨위에서 h3(좀더 작은 단위) 의 색이 정이 되었기 때문에 다시 설정 해줘야한다 */
+.project__description h3 {
+  color: var(--color-white);
+}
+
+.project__description h3:after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  background-color: var(--color-dark-white);
+  position: relative;
+  left: 50%;
+  margin-left: -12px;
+  margin-top: 8px;
 }
