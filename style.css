@@ -15,6 +15,7 @@
   --color-orange: #feb546;
   --color-black: #000000;
   --color-light-yellow: #ffbe58;
+  --color-grey-projects: #ebebeb;
 
   /* Font size */
   --font-large: 48px;
@@ -170,6 +171,12 @@ css 에서는 .~~~.active라고 쓰면 된다!
   margin: auto;
 }
 
+
+/* 중요한것은 항상 최대 크기를 정해줘야
+  이넓이 이상으로 안삐져 나간다.. 또한 백그라운드는 넓어지되
+  컴포넌트들은 일정이상 안커지게 한다.. 그래서 section과 section contanier를
+  나누었다.
+*/
 .section__container {
   max-width: 1200px;
   margin: auto;
@@ -331,6 +338,7 @@ flex-grow: 1;
   border-radius: var(--size-border-radius);
   font-size: var(--font-regular);
   padding: 8px 48px;
+  margin: 5px 5px;
 }
 
 .work__categories {
@@ -386,7 +394,7 @@ relative나 absolute 포지션을 찾게되기 때문이다 */
   width: 280px;
   height: 250px;
   margin: 2px;
-  background-color: var(--color-white);
+  background-color: var(--color-grey-projects);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -518,4 +526,64 @@ relative나 absolute 포지션을 찾게되기 때문이다 */
   transform: scale(1.1);
   color: var(--color-dark-pink);
   transition: all var(--animation-duration) ease-in;
+}
+
+
+/* opacity 만들어서 할수도있지만
+마우스 클릭이 되어.. 만들어놓고 display none으로 설정후
+미디어쿼리에서 보여주면 된다! */
+.navbar__toggle-btn {
+  position: absolute;
+  right: 32px;
+  font-size: 24px;
+  color: var(--color-white);
+  display: none;
+}
+
+
+/* For below 768px screen width */
+@media screen and (max-width: 768px) {
+  .navbar__toggle-btn {
+    display: block;
+  }
+
+  #navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar__menu {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    display: none;
+  }
+
+  /* 메뉴 를 눌러야 보여지게 될것이다! */
+
+  .about__majors {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .major {
+    margin-bottom: 30px;
+  }
+
+  .skillset {
+    flex-direction: column;
+  }
+
+  .project {
+    flex-grow: 1;
+  }
+
+  .testimonial {
+    align-items: center;
+  }
+
+  .testimonial__avatar {
+    width: 80px;
+    height: 80px;
+  }
 }
