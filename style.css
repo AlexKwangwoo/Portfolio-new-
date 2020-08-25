@@ -129,6 +129,13 @@ button {
   display: flex;
 }
 
+.navbar__menu.open {
+  display: block;
+  text-align: center;
+  background: var(--color-light-yellow);
+
+}
+
 .navbar__menu__item {
   padding: 8px 12px;
   margin: 0 4px;
@@ -481,20 +488,26 @@ relative나 absolute 포지션을 찾게되기 때문이다 */
 /* Description 에서 설정을 해주지만..
 맨위에서 h3(좀더 작은 단위) 의 색이 정이 되었기 때문에 다시 설정 해줘야한다 */
 .project__description h3 {
-  color: var(--color-white);
+  color: var(--color-orange);
 }
 
 .project__description h3:after {
   content: "";
   display: block;
-  width: 40px;
-  height: 2px;
-  background-color: var(--color-dark-white);
   position: relative;
-  left: 50%;
-  margin-left: -12px;
+  width: 50px;
+  height: 2px;
   margin-top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-dark-white);
 }
+
+/* left 위치를 50프로 움직이고 나의 크기의 절반만큼 왼쪽으로 온다!
+  즉 가운데 정렬이 될것이다! -% <-  X -> +% 이다!!
+*/
+
+
 
 /* Testmonial */
 #testimonials {
@@ -623,6 +636,11 @@ relative나 absolute 포지션을 찾게되기 때문이다 */
   #navbar {
     flex-direction: column;
     align-items: flex-start;
+    background-color: var(--color-light-yellow);
+  }
+
+  #navbar.navbar--dark {
+    padding: 16px;
   }
 
   .navbar__menu {

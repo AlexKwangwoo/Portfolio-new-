@@ -119,6 +119,7 @@ navbarMenu.addEventListener('click', (event) => {
   if (link == null) {
     return;
   }
+  navbarMenu.classList.remove('open');
   const scrollTo = document.querySelector(link);
   scrollTo.scrollIntoView({
     behavior: 'smooth'
@@ -127,6 +128,13 @@ navbarMenu.addEventListener('click', (event) => {
   // buttonTarget.classList.remove('active');
   // target.classList.add('active');
 })
+
+
+//Navbar toggle button for small screen
+const navbarToggleBtn = document.querySelector('.navbar__toggle-btn');
+navbarToggleBtn.addEventListener('click', () => {
+  navbarMenu.classList.toggle('open');
+});
 
 
 // Handle cilck on "contact me" button on home
@@ -144,6 +152,9 @@ contact.addEventListener('click', (event) => {
   //   behavior: 'smooth'
   // });
 });
+
+
+
 
 // Handle cilck on "Arrow" button on home
 const arrow = document.querySelector('#arrow');
