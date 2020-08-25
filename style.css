@@ -116,6 +116,7 @@ button {
 #navbar.navbar--dark {
   background-color: var(--color-light-yellow);
   padding: 8px;
+  height: 60px;
   transition: all var(--animation-duration) ease-in;
 }
 
@@ -166,6 +167,11 @@ css 에서는 .~~~.active라고 쓰면 된다!
 .home__title,
 .home__description {
   color: var(--color-white);
+}
+
+.home__contact:hover {
+  background-color: var(--color-dark-pink);
+  transition: all var(--animation-duration) ease-in;
 }
 
 .home__contact {
@@ -553,6 +559,33 @@ relative나 absolute 포지션을 찾게되기 때문이다 */
   display: none;
 }
 
+
+/* Arrow btn 
+  i는 폰트 사이즈이다!!
+  또한 display는 none하면 에니메이션을 할수없다
+  그래서 투명도를 0으로 준다.. 이때 안보여도 클릭이 가능할 수 있다.
+  그래서 pointer를 none으로 주면 포인터가 가지 않기때문에 클릭이 불가능하다!
+*/
+#arrow {
+  background-color: var(--color-pink);
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  font-size: 40px;
+  color: var(--color-white);
+  opacity: 0;
+  pointer-events: none;
+  /* 이게 클릭을 사라지게 해주는 것이다! */
+  transition: all var(--animation-duration) ease-in;
+}
+
+#arrow.visible {
+  opacity: 1;
+  pointer-events: visible;
+}
 
 /* For below 768px screen width */
 @media screen and (max-width: 768px) {
