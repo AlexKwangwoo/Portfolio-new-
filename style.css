@@ -371,6 +371,7 @@ flex-grow: 1;
   border-radius: var(--size-border-radius);
   font-size: var(--font-regular);
   padding: 8px 48px;
+  position: relative;
 }
 
 .work__categories {
@@ -391,7 +392,7 @@ flex-grow: 1;
 .category__btn.active .category__count,
 .category__btn:hover .category__count {
   opacity: 1;
-  top: 0;
+  top: 4.5px;
 }
 
 
@@ -404,9 +405,9 @@ flex-grow: 1;
   height: 24px;
   line-height: 24px;
   display: inline-block;
-  position: relative;
-  top: -20px;
-  left: 4px;
+  position: absolute;
+  top: -30px;
+  right: 16px;
   opacity: 0;
   transition: all var(--animation-duration) ease-in;
 }
@@ -629,6 +630,16 @@ relative나 absolute 포지션을 찾게되기 때문이다 */
 
 /* For below 768px screen width */
 @media screen and (max-width: 768px) {
+
+  :root {
+    /* Font size */
+    --font-large: 30px;
+    --font-medium: 18px;
+    --font-regular: 14px;
+    --font-small: 12px;
+    --font-micro: 10px;
+  }
+
   .navbar__toggle-btn {
     display: block;
   }
@@ -643,6 +654,12 @@ relative나 absolute 포지션을 찾게되기 때문이다 */
     padding: 16px;
   }
 
+  .section {
+    padding: 16px;
+    padding-top: 80px;
+  }
+
+
   .navbar__menu {
     flex-direction: column;
     align-items: center;
@@ -655,6 +672,8 @@ relative나 absolute 포지션을 찾게되기 때문이다 */
   .about__majors {
     flex-direction: column;
     align-items: center;
+    margin-top: 30px;
+    margin-bottom: 0px;
   }
 
   .major {
@@ -665,16 +684,67 @@ relative나 absolute 포지션을 찾게되기 때문이다 */
     flex-direction: column;
   }
 
+  .category__btn {
+    margin: 4px;
+    width: 100%;
+  }
+
   .project {
     flex-grow: 1;
   }
 
+  .category__count {
+    right: 40px;
+  }
+
+  .category__btn.active .category__count,
+  .category__btn:hover .category__count {
+    opacity: 1;
+    top: 4px;
+  }
+
+
   .testimonial {
+    flex-direction: column;
     align-items: center;
   }
 
-  .testimonial__avatar {
-    width: 80px;
-    height: 80px;
+  .testimonial__speech-bubble {
+    order: 1;
   }
+
+  .navbar__menu.open {
+    width: 100%;
+  }
+
+  .testimonial__avatar {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 10px;
+    /* 항상 더 세부적인게 적용된다!! 즉 even,odd에서 지정해줘야함! */
+  }
+
+  .testimonial__avatar:nth-child(even),
+  .testimonial__avatar:nth-child(odd) {
+    margin: 0px;
+    margin-bottom: 10px;
+  }
+
+  #arrow {
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    line-height: 50px;
+    right: 16px;
+    bottom: 16px;
+  }
+
+  #contact {
+    padding-top: 20px;
+  }
+
+  /* #work,
+  #about {
+    padding-top: 18px;
+  } */
 }
